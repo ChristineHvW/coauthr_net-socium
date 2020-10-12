@@ -5,6 +5,8 @@ library(igraph)
 library(visNetwork)
 library(xlsx)
 library(ggplot2)
+library(stargazer)
+library(sjPlot)
 
 #---Read in and reformat publication list----
 
@@ -109,7 +111,7 @@ macro_desc <- data.frame("1" = c("No. Publications", "No. Authors", "No. Edges",
                                   authors_soc, edges_soc, round(n_sub$assort, digits = 2))))
 
 save(macro_desc, file = "macro_des.RData")
-write.xlsx(macro_desc, "macro_desc.xlsx", row.names = F, col.names = F)
+#write.xlsx(macro_desc, "macro_desc.xlsx", row.names = F, col.names = F)
 
 #--Micro Descriptives
 
@@ -117,7 +119,6 @@ df.vert_n <- igraph::as_data_frame(n, 'vertices')
 df.vert_red <- filter(df.vert_n, dep_cat != 6) # reduced network (only SOCIUM members, but with measures from orig. netw.)
 save(df.vert_red, file = "micro_desc_soc.RData")
 
-library(stargazer)
 stargazer(df.vert_red[c("dep1", "dep2", "dep3", "dep4", "dep5", "dep6", "dep_cat2", "tot_pub", "degree", "betweenness", "eigenvector", "strength")], 
           title = "Summary statistics of author characteristics", digits = 1, type = "text", out = "summary.htm")
 
@@ -145,8 +146,9 @@ stargazer(df.vert_red[c("dep1", "dep2", "dep3", "dep4", "dep5", "dep6", "dep_cat
     head(20))
 
 top20 <- data.frame(top20_deg, top20_btw, top20_eig, top20_str)
+
 save(top20, file = "top20_df.RData")
-write.xlsx(top20, "top20.xlsx")
+#write.xlsx(top20, "top20.xlsx")
 
 #---Further Anylyses----
 
@@ -182,7 +184,7 @@ stargazer(m1, star.cutoffs = c(0.05, 0.01, 0.001), type = "text", out = "m1.htm"
           covariate.labels = c("Economy", "Inequality", "Life Course", "Health"),
           dep.var.labels = "ln(Degree)", dep.var.caption = "")
 
-library(sjPlot)
+# Coef-Plot
 
 p <- plot_model(m1, type = "pred", terms = "dep_cat", 
                 title = "Predicted Values of Degree Centrality", axis.title = c("Department", "Degree"))
