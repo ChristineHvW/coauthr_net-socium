@@ -9,5 +9,11 @@ The file **auth_attributes.xlsx** contains author attributes (department members
 
 The file **socpub_coauth_final.R** contains R-code to reproduce the network operations and statistical analyses of the paper.  
 
-To recreate the graphs installation of the software _visone_ (https://visone.info/) is necessary.
+To recreate the graphs installation of the software _visone_ (https://visone.info/) is necessary.  
 
+# To Do  
+
+- Adapt labels and layout micro descriptives
+- Add regression plot
+- Add top20 table to appendix
+- create sub-folders (figs, code etc) and adapt file paths
