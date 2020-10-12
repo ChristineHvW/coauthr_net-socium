@@ -1,8 +1,8 @@
 library(here)
 library(readxl)
 library(dplyr)
-library(igraph)
-library(visNetwork)
+library(igraph) # basic package for network analysis in R
+library(visNetwork) # interactive visualisations
 library(xlsx)
 library(ggplot2)
 library(stargazer)
@@ -53,17 +53,20 @@ soc_pub.net.att <- graph_from_data_frame(df.soc_pub$edges, directed = F, vertice
 
 n <- soc_pub.net.att
 
+# Measures for individual nodes
 V(n)$degree <- degree(n, normalized = FALSE)
 V(n)$betweenness <- betweenness(n, normalized = FALSE)
 V(n)$eigenvector <- as.numeric(eigen_centrality(n)$vector)
 V(n)$strength <- strength(n)
 
+# Measures for overall network
 n$comp <- components(n)
 n$ncomp <- count_components(n)
 n$centdeg <- centralization.degree(n)
 n$centbtw <- centralization.betweenness(n)
 n$centeig <- centralization.evcent(n)
 
+# Prep for visualisations
 V(n)$size <- 1+0.5*degree(n)
 E(n)$width <- E(n)$weight
 V(n)$label.cex <- .7
