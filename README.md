@@ -13,7 +13,9 @@ To recreate the graphs installation of the software _visone_ (https://visone.inf
 
 # To Do  
 
-- Adapt labels and layout micro descriptives
-- Add regression plot
-- Add top20 table to appendix
-- create sub-folders (figs, code etc) and adapt file paths
+- create sub-folders (figs, code etc.) and adapt file paths
+- adapt labels and layout micro descriptives
+- add regression plot
+- add top20 table to appendix
+- create separate r-script for data meet-up, including more vis. alternatives
+- improve commentation
