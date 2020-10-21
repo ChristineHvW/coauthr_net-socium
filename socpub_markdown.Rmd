@@ -1,6 +1,9 @@
 ---
 title: "Characteristics of Co-Authorship Networks in the Social Sciences: A Case Study of the SOCIUM Research Center"
-author: "Christine Hedde - von Westernhagen"
+author: |
+  | Christine Hedde - von Westernhagen^[chhe@uni-bremen.de]                          
+  | University of Bremen
+date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: 
   pdf_document:
     number_sections: true
@@ -44,8 +47,11 @@ load("top20_df.RData")
 
 ```
 
+\thispagestyle{empty}
 \newpage
+\addtocontents{toc}{\protect\thispagestyle{empty}}
 \tableofcontents
+\thispagestyle{empty}
 \newpage
 
 # Introduction {.unnumbered}  
@@ -186,13 +192,13 @@ stargazer(m1, star.cutoffs = c(0.05, 0.01, 0.001), font.size = "footnotesize",
 
 ```{r plot_between, fig.align = 'center', out.width = "100%"}
 
-knitr::include_graphics("n_sub-2_new.png")
+knitr::include_graphics(here("visone_graphs","n_sub-2_new.png"))
 
 ```
 
 ```{r plot_between_legend, fig.align='left', out.width = "40%", fig.cap = "Co-Authorship Network of the SOCIUM Reflecting Betweenness Centrality. Members of the methods department are marked in red. Ties sized according to weight."}
 
-knitr::include_graphics("n_sub_legend.png")
+knitr::include_graphics(here("visone_graphs","n_sub_legend.png"))
 
 ```
 
@@ -228,12 +234,12 @@ Future research on this case could take into account additional author character
 
 ```{r plot_central, fig.align = 'center', out.width = "100%"}
 
-knitr::include_graphics("n_sub-1.png")
+knitr::include_graphics(here("visone_graphs","n_sub-1.png"))
 
 ```
 
 ```{r plot_central_legend, fig.align = 'left', out.width = "40%", fig.cap = "Co-Authorship Network of the SOCIUM Reflecting Degree Centrality. Ties sized according to weight."}
 
-knitr::include_graphics("n_sub_legend.png")
+knitr::include_graphics(here("visone_graphs","n_sub_legend.png"))
 
 ```

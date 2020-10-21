@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.8)  12 OCT 2020 18:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.14)  21 OCT 2020 12:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **socpub_markdown.tex
 (./socpub_markdown.tex
-LaTeX2e <2020-10-01>
+LaTeX2e <2020-10-01> patch level 1
 L3 programming layer <2020-10-05> xparse <2020-03-03> (c:/Users/chw/AppData/Roa
 ming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -220,7 +220,7 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
 (c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.
 sty
-Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
 \@linkdim=\dimen148
 \Hy@linkcounter=\count195
@@ -655,7 +655,15 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
 
 (c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9
+0.
+(c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 90.
+[1
 
 {c:/Users/chw/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.
 map}] (./socpub_markdown.toc)
@@ -663,26 +671,24 @@ map}] (./socpub_markdown.toc)
 \openout4 = `socpub_markdown.toc'.
 
 [2] [3] [4] [5] [6] [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 432--446
+Underfull \hbox (badness 10000) in paragraph at lines 435--449
 
  []
 
 [10]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 505.
+(Font)              <12> on input line 508.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 505.
+(Font)              <8> on input line 508.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 505.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 505.
+(Font)              <6> on input line 508.
 
-Underfull \hbox (badness 10000) in paragraph at lines 503--530
+Underfull \hbox (badness 10000) in paragraph at lines 506--533
 
  []
 
 [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 577--582
+Underfull \hbox (badness 10000) in paragraph at lines 580--585
 
  []
 
@@ -690,50 +696,64 @@ Underfull \hbox (badness 10000) in paragraph at lines 577--582
 .1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.664 
+l.667 
       pdfTeX warning (ext4): destination with the same identifier (name{table.2
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.664 
+l.667 
       ]
-<n_sub-2_new.png, id=250, 1363.0925pt x 1262.7175pt>
-File: n_sub-2_new.png Graphic file (type png)
-<use n_sub-2_new.png>
-Package pdftex.def Info: n_sub-2_new.png  used on input line 701.
+<C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub-2_new.png, id=253
+, 1363.0925pt x 1262.7175pt>
+File: C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub-2_new.png Gr
+aphic file (type png)
+<use C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub-2_new.png>
+Package pdftex.def Info: C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs
+/n_sub-2_new.png  used on input line 704.
 (pdftex.def)             Requested size: 443.5822pt x 410.91782pt.
 [15pdfTeX warning (ext4): destination with the same identifier (name{table.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.701 ...th=1\linewidth]{n_sub-2_new} \end{center}
+l.704 ...m/visone_graphs/n_sub-2_new} \end{center}
                                                   ]
-<n_sub_legend.png, id=260, 247.52475pt x 158.39175pt>
-File: n_sub_legend.png Graphic file (type png)
-<use n_sub_legend.png>
-Package pdftex.def Info: n_sub_legend.png  used on input line 705.
+<C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub_legend.png, id=26
+3, 247.52475pt x 158.39175pt>
+File: C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub_legend.png G
+raphic file (type png)
+<use C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub_legend.png>
+Package pdftex.def Info: C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs
+/n_sub_legend.png  used on input line 708.
 (pdftex.def)             Requested size: 177.43208pt x 113.53926pt.
 [16pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.745 
-       <./n_sub-2_new.png (PNG copy)> <./n_sub_legend.png>] [17] [18] [19] [20]
-<n_sub-1.png, id=299, 1347.0325pt x 1178.4025pt>
-File: n_sub-1.png Graphic file (type png)
-<use n_sub-1.png>
-Package pdftex.def Info: n_sub-1.png  used on input line 978.
+l.748 
+       <c:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub-2_new.png 
+(PNG copy)> <c:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub_legen
+d.png>] [17] [18] [19] [20]
+<C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub-1.png, id=302, 13
+47.0325pt x 1178.4025pt>
+File: C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub-1.png Graphi
+c file (type png)
+<use C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub-1.png>
+Package pdftex.def Info: C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs
+/n_sub-1.png  used on input line 981.
 (pdftex.def)             Requested size: 443.57661pt x 388.0469pt.
-File: n_sub_legend.png Graphic file (type png)
-<use n_sub_legend.png>
-Package pdftex.def Info: n_sub_legend.png  used on input line 982.
+File: C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub_legend.png G
+raphic file (type png)
+<use C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_sub_legend.png>
+Package pdftex.def Info: C:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs
+/n_sub_legend.png  used on input line 985.
 (pdftex.def)             Requested size: 177.43208pt x 113.53926pt.
 [21pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.987 \end{document}
-                     <./n_sub-1.png (PNG copy)>] (./socpub_markdown.aux)
+l.990 \end{document}
+                     <c:/Users/chw/OneDrive/coauthr_net-socium/visone_graphs/n_
+sub-1.png (PNG copy)>] (./socpub_markdown.aux)
 Package rerunfilecheck Info: File `socpub_markdown.out' has not changed.
 (rerunfilecheck)             Checksum: D11253B7D3C8F10109C897FE44ED11CD;1804.
 
@@ -742,16 +762,16 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 65 (\begingroup)
+### semi simple group (level 1) entered at line 64 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 12074 strings out of 481860
- 174861 string characters out of 5929463
- 484610 words of memory out of 5000000
- 28049 multiletter control sequences out of 15000+600000
- 602318 words of font info for 79 fonts, out of 8000000 for 9000
+ 12112 strings out of 481861
+ 176999 string characters out of 5929479
+ 484475 words of memory out of 5000000
+ 28077 multiletter control sequences out of 15000+600000
+ 603053 words of font info for 81 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,11n,66p,388b,2417s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,66p,388b,2417s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced bu
 t does not exist, replaced by a fixed one
 
@@ -765,6 +785,7 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 nc}{c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.en
 c}{c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 }{c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.
+enc}{c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.
 enc}<c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx
 10.pfb><c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/l
 mbx12.pfb><c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/l
@@ -777,10 +798,10 @@ ublic/lm/lmr17.pfb><c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
 e1/public/lm/lmri10.pfb><c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/fonts/
 type1/public/lm/lmri12.pfb><c:/Users/chw/AppData/Roaming/TinyTeX/texmf-dist/fon
 ts/type1/public/lm/lmsy7.pfb>
-Output written on socpub_markdown.pdf (21 pages, 1024574 bytes).
+Output written on socpub_markdown.pdf (21 pages, 1025553 bytes).
 PDF statistics:
- 370 PDF objects out of 1000 (max. 8388607)
- 328 compressed objects within 4 object streams
+ 376 PDF objects out of 1000 (max. 8388607)
+ 334 compressed objects within 4 object streams
  96 named destinations out of 1000 (max. 500000)
  112 words of extra memory for PDF output out of 10000 (max. 10000000)
 
