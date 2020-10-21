@@ -13,8 +13,6 @@ To recreate the graphs, installation of the software _visone_ (https://visone.in
 
 # To Do  
 
-- adapt labels and layout micro descriptives
-- add regression plot
 - add top20 table to appendix
 - link figures and tables
 - create separate r-script for data meet-up, including more vis. alternatives
