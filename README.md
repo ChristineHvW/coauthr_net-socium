@@ -13,9 +13,9 @@ To recreate the graphs, installation of the software _visone_ (https://visone.in
 
 # To Do  
 
-- create sub-folders (figs, code etc.) and adapt file paths
 - adapt labels and layout micro descriptives
 - add regression plot
 - add top20 table to appendix
+- link figures and tables
 - create separate r-script for data meet-up, including more vis. alternatives
 - improve commentation
