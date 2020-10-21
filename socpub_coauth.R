@@ -10,7 +10,7 @@ library(sjPlot)
 
 #---Read in and reformat publication list----
 
-soc_pub <- as.data.frame(read_excel("soc_pub_all_sci.xlsx"))
+soc_pub <- as.data.frame(read_excel("soc_pub_all-sci.xlsx"))
 head(soc_pub, 6)
 
 soc_pub.coauth <- sapply(as.character(soc_pub$author), strsplit, "; ") %>% 
@@ -81,7 +81,7 @@ E(n_sub)$width <- 0.8*E(n_sub)$weight
 V(n_sub)$size <- 5+0.1*(degree(n_sub))^2
 n_sub$assort <- assortativity.nominal(n_sub, type = V(n_sub)$dep_cat) # department homophily
 
-write.graph(n_sub, file = "n_sub.graphml", format = "graphml") # formatting for visone
+write.graph(n_sub, file = here("visone_graphs", "n_sub.graphml"), format = "graphml") # formatting for visone
 
 #---Interactive Visualisation with visNetwwork----
 
@@ -104,23 +104,23 @@ authors_soc <- vcount(n_sub)
 edges_soc <- ecount(n_sub)
 
 #-put into table
-macro_desc <- data.frame("1" = c("No. Publications", "No. Authors", "No. Edges", "Publications/Author", "Authors/Publication",
+macro_des <- data.frame("1" = c("No. Publications", "No. Authors", "No. Edges", "Publications/Author", "Authors/Publication",
                                  "Degree Centralization", "Betweenness Centralization", "Eigenvector Centralization",
                                  "No. Components", "No. of Authors in Main Component (%)", "Isolates",
                                  "No. Authors", "No. Edges", "Department Assortativity"), # socium
-                         "2" = (c(publications, authors, edges, round(c(pub_per_auth, auth_per_pub, 
-                                  n$centdeg$centralization, n$centbtw$centralization, n$centeig$centralization), digits = 2), 
-                                  n$ncomp, "1081 (87.2%)", sum(degree(n)==0),
-                                  authors_soc, edges_soc, round(n_sub$assort, digits = 2))))
+                        "2" = (c(publications, authors, edges, round(c(pub_per_auth, auth_per_pub, 
+                                 n$centdeg$centralization, n$centbtw$centralization, n$centeig$centralization), digits = 2), 
+                                 n$ncomp, "1081 (87.2%)", sum(degree(n)==0),
+                                 authors_soc, edges_soc, round(n_sub$assort, digits = 2))))
 
-save(macro_desc, file = "macro_des.RData")
-#write.xlsx(macro_desc, "macro_desc.xlsx", row.names = F, col.names = F)
+save(macro_des, file = "macro_des.RData")
+#write.xlsx(macro_des, "macro_des.xlsx", row.names = F, col.names = F)
 
 #--Micro Descriptives
 
 df.vert_n <- igraph::as_data_frame(n, 'vertices')
 df.vert_red <- filter(df.vert_n, dep_cat != 6) # reduced network (only SOCIUM members, but with measures from orig. netw.)
-save(df.vert_red, file = "micro_desc_soc.RData")
+save(df.vert_red, file = "micro_des_soc.RData")
 
 stargazer(df.vert_red[c("dep1", "dep2", "dep3", "dep4", "dep5", "dep6", "dep_cat2", "tot_pub", "degree", "betweenness", "eigenvector", "strength")], 
           title = "Summary statistics of author characteristics", digits = 1, type = "text", out = "summary.htm")

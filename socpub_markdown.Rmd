@@ -38,7 +38,7 @@ library(stargazer)
 ```{r data, incude=FALSE}
 
 load("macro_des.RData")
-load("micro_desc_soc.RData")
+load("micro_des_soc.RData")
 load("reg_results.RData")
 load("top20_df.RData")
 
@@ -154,7 +154,7 @@ Table 1 lists the characteristics of the overall network. The complete network, 
 Excluding the authors that are not SOCIUM members results in 240 nodes that are connected by 461 edges. Looking at the assortativity coefficient (0.75), we find clear evidence for the authors preferably working together within their departments (H2). Still, there seems to be room for collaboration across departments, as well.  
 ```{r macro_des}
 
-kable(macro_desc, format = "latex", booktabs = TRUE, col.names = NULL,
+kable(macro_des, format = "latex", booktabs = TRUE, col.names = NULL,
       caption = "Overall network charactersitics.") %>%
   kable_styling(font_size = 10) %>%
   pack_rows("Complete Network", 1, 11) %>%
