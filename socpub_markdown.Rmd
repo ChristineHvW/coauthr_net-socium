@@ -35,6 +35,7 @@ library(tinytex)
 library(knitr)
 library(kableExtra)
 library(stargazer)
+library(sjPlot)
 
 ```
 
@@ -155,53 +156,64 @@ As for H4, I will again resort to descriptive methods, since the distribution of
 # Results  
 
 *Macro Characteristics*  
-Table 1 lists the characteristics of the overall network. The complete network, that is, authors not affiliated with the SOCIUM included, consist of 1239 researchers, having produced 2278 publications. With a number of 4396 edges, exceeding the number of nodes by far, the network is rather dense. On average, the authors published 4.18 pieces of literature in those ten years with about 2.27 authors per publication, which is in line with prior studies about co-authorship in the social sciences [e.g. @henriksen_rise_2016]. There is little degree centralization (13%), notable betweenness centralization (31%) and almost complete eigenvector centralization (98%). This implicates that there are very few highly central authors that are also connected to other central authors (eigenvector), but none who accrue the majority of edges (degree) or the majority of shortest paths (betweenness). Even though the network consists of a substantial number of components (26, excluding isolates), the vast majority of authors (87.2%) is part of the largest component. These findings lend partial support for H1: even though, overall, authors seem to be connected equally well, we find some highly central nodes that are mostly connected to other well-connected nodes, and not to, e.g., graduate students and junior researchers who have not had the chance to collaborate much.
-
-Excluding the authors that are not SOCIUM members results in 240 nodes that are connected by 461 edges. Looking at the assortativity coefficient (0.75), we find clear evidence for the authors preferably working together within their departments (H2). Still, there seems to be room for collaboration across departments, as well.  
 ```{r macro_des}
 
 kable(macro_des, format = "latex", booktabs = TRUE, col.names = NULL,
       caption = "Overall network charactersitics.") %>%
-  kable_styling(font_size = 10) %>%
+  kable_styling(font_size = 10, latex_options = "hold_position") %>%
   pack_rows("Complete Network", 1, 11) %>%
   pack_rows("SOCIUM", 12, 14)
   
-
 ```
+Table 1 lists the characteristics of the overall network. The complete network, that is, authors not affiliated with the SOCIUM included, consist of 1239 researchers, having produced 2278 publications. With a number of 4396 edges, exceeding the number of nodes by far, the network is rather dense. On average, the authors published 4.18 pieces of literature in those ten years with about 2.27 authors per publication, which is in line with prior studies about co-authorship in the social sciences [e.g. @henriksen_rise_2016]. There is little degree centralization (13%), notable betweenness centralization (31%) and almost complete eigenvector centralization (98%). This implicates that there are very few highly central authors that are also connected to other central authors (eigenvector), but none who accrue the majority of edges (degree) or the majority of shortest paths (betweenness). Even though the network consists of a substantial number of components (26, excluding isolates), the vast majority of authors (87.2%) is part of the largest component. These findings lend partial support for H1: even though, overall, authors seem to be connected equally well, we find some highly central nodes that are mostly connected to other well-connected nodes, and not to, e.g., graduate students and junior researchers who have not had the chance to collaborate much.
+
+Excluding the authors that are not SOCIUM members results in 240 nodes that are connected by 461 edges. Looking at the assortativity coefficient (0.75), we find clear evidence for the authors preferably working together within their departments (H2). Still, there seems to be room for collaboration across departments, as well.  
+
 \setlength{\parindent}{0em} 
 *Micro Characteristics*  
 \setlength{\parindent}{4em}
 Most of the SOCIUM’s members are part of the health department, the fewest are found in the methods department. The numbers do not add up to 240 because multiple membership is possible (mostly second membership is in the methods department). These and other author characteristics can be found in Table 2^[Closeness centrality was omitted because of the network not being completely connected.].  
 ```{r micro_des, results='asis'}
 
-stargazer(df.vert_red[c("dep1", "dep2", "dep3", "dep4", "dep5", "dep6", "dep_cat2", "tot_pub", "degree", "betweenness", "eigenvector", "strength")], 
-          title = "Summary statistics of author characteristics", digits = 1, font.size = "footnotesize", type = "latex", header = FALSE)
+stargazer(df.vert_red[c("dep1", "dep2", "dep3", "dep4", "dep5", "dep6", "dep_cat2", "tot_pub", "degree", "betweenness",
+                        "eigenvector", "strength")],
+          covariate.labels = c("Member Dep. 1", "Member Dep. 2", "Member Dep. 3", "Member Dep. 4", "Member Dep. 5",
+                               "Member Dep. 6", "Dep. 2nd Membership", "No. Publications", "Degree Cent.", "Betweenness Cent.",
+                               "Eigenvector Cent.", "Tie Strength"),
+          title = "Summary statistics of author characteristics", label = "tab:micro_des",
+          digits = 2, font.size = "footnotesize", type = "latex", header = FALSE)
 
 ```
-Table 3 displays the results for the linear regression of degree centrality on department membership. The department for normative and theoretical foundations serves as reference category, and we can see that only for the health department degree centrality is significantly increased. Figure 1 shows the predicted values for all departments. We can see here that the health department really only differs significantly from the reference category, but not from the other departments, which lends partial support for H3. A figure of the network displaying node size according to degree can be found in the appendix (Figure A).
-Figure 2 displays the co-authorship network of the SOCIUM’s members. Nodes are sized according to betweenness centrality for the whole network, including external authors. Members of the methods department are marked in red. We can see that node size does not increase in favor of those members but rather with regard to position within a department. The heads of the departments as well as members of the health department show especially large node sizes. This perception is also supported by the ranking table found in the appendix (Table A).  
+Table 3 displays the results for the linear regression of degree centrality on department membership. The department for normative and theoretical foundations serves as reference category, and we can see that only for the health department degree centrality is significantly increased. Figure 1 shows the predicted values for all departments. We can see here that the health department really only differs significantly from the reference category, but not from the other departments, which lends partial support for H3. A figure of the network displaying node size according to degree can be found in the appendix (Figure A).   
 ```{r reg_results, results='asis'}
 
 stargazer(m1, star.cutoffs = c(0.05, 0.01, 0.001), font.size = "footnotesize", 
-          type = "latex", header = FALSE,
+          type = "latex", header = FALSE, table.placement = "h!",
           covariate.labels = c("Economy", "Inequality", "Life Course", "Health"),
           dep.var.labels = "ln(Degree)", dep.var.caption = "",
-          title = "Results of the linear regression of degree centrality on department membership.")
+          title = "Results of the linear regression of degree centrality on department membership.",
+          label = "tab:reg_results")
 
 ```
+```{r coef_plot, out.width="60%", fig.pos="h!", fig.cap="Predicted Values of Degree Centrality by Department"}
 
+p <- plot_model(m1, type = "pred", terms = "dep_cat", 
+                title = "", axis.title = c("Department", "ln(Degree)"))
+
+p + theme_sjplot2()
+```
 ```{r plot_between, fig.align = 'center', out.width = "100%"}
 
 knitr::include_graphics(here("visone_graphs","n_sub-2_new.png"))
 
 ```
-
 ```{r plot_between_legend, fig.align='left', out.width = "40%", fig.cap = "Co-Authorship Network of the SOCIUM Reflecting Betweenness Centrality. Members of the methods department are marked in red. Ties sized according to weight."}
 
 knitr::include_graphics(here("visone_graphs","n_sub_legend.png"))
 
 ```
-
+\newpage
+Figure 2 displays the co-authorship network of the SOCIUM’s members. Nodes are sized according to betweenness centrality for the whole network, including external authors. Members of the methods department are marked in red. We can see that node size does not increase in favor of those members but rather with regard to position within a department. The heads of the departments as well as members of the health department show especially large node sizes. This perception is also supported by the ranking table found in the appendix (Table A).   
 
 # Discussion  
 
