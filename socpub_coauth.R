@@ -10,7 +10,7 @@ library(sjPlot)
 
 #---Read in and reformat publication list----
 
-soc_pub <- as.data.frame(read_excel("soc_pub_all-sci.xlsx"))
+soc_pub <- as.data.frame(read_excel(here("data", "soc_pub_all-sci.xlsx")))
 head(soc_pub, 6)
 
 soc_pub.coauth <- sapply(as.character(soc_pub$author), strsplit, "; ") %>% 
@@ -36,7 +36,7 @@ soc_pub.net <- graph_from_adjacency_matrix(as.matrix(soc_pub.mat), mode = "undir
 
 #---Read Author Attributes----
 
-auth_att <- as.data.frame(read_excel("auth_attributes.xlsx"))
+auth_att <- as.data.frame(read_excel(here("data", "auth_attributes.xlsx")))
 auth_att <- auth_att %>%
   mutate(dep_cat = if_else(is.na(dep_cat), 6, dep_cat), # 6 = external author
          socium = if_else(dep_cat == 6, 2, 1)) 
