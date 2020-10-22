@@ -1,9 +1,6 @@
 ---
-title: "Characteristics of Co-Authorship Networks in the Social Sciences: A Case Study of the SOCIUM Research Center"
-author: |
-  | Christine Hedde - von Westernhagen^[chhe@uni-bremen.de]                          
-  | University of Bremen
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+title: "Characteristics of Co-Authorship Networks in the Social Sciences: A Case Study of the SOCIUM Research Center^[Term paper for the course 'Network Analysis in Political Science', Prof. Dr. S. Haunss, University of Bremen 2019/20.]"
+author: "Christine Hedde - von Westernhagen^[chhe@uni-bremen.de]"                        
 output: 
   pdf_document:
     number_sections: true
@@ -14,7 +11,9 @@ header-includes:
   - \setlength{\parindent}{4em}
   - \setlength{\parskip}{0em}
   - \usepackage{setspace}\spacing{1.5}
-  - \usepackage{booktabs}
+  - \usepackage{pdflscape}
+  - \newcommand{\blandscape}{\begin{landscape}}
+  - \newcommand{\elandscape}{\end{landscape}}
 bibliography: Cited.bib
 csl: universitat-bremen-institut-fur-politikwissenschaft.csl
 link-citations: true
@@ -44,7 +43,6 @@ library(sjPlot)
 load("macro_des.RData")
 load("micro_des_soc.RData")
 load("reg_results.RData")
-load("top20_df.RData")
 
 ```
 
@@ -241,9 +239,31 @@ Future research on this case could take into account additional author character
 <div id="refs"></div>
 \endgroup
 \newpage  
-
+\blandscape
 # Appendix {.unnumbered}
+\begingroup
+\renewcommand\arraystretch{1.5}
+```{r top20}
 
+load("top20_df.RData")
+
+rownames(top20) <- 1:20
+
+top20 <- top20 %>% 
+  mutate(rank = rownames(top20)) %>%
+  select(rank, everything())
+
+kable(top20, format = "latex", booktabs = TRUE, linesep = " ", 
+      col.names = c("", "Name", "Degree", "Dept.", "Name", "Betweenness", "Dept.", "Name", "Eigenvector", "Dept.", 
+                    "Name", "Strength", "Dept."),
+      caption = "Top 20 Authors for Respective Centrality Measures.") %>%
+  column_spec(1, bold = TRUE) %>%
+  footnote(general = "Non-SOCIUM members excluded.", footnote_as_chunk = TRUE) %>%
+  kable_styling(font_size = 10, latex_options = c("scale_down", "hold_position"))
+
+```
+\endgroup
+\elandscape
 ```{r plot_central, fig.align = 'center', out.width = "100%"}
 
 knitr::include_graphics(here("visone_graphs","n_sub-1.png"))
